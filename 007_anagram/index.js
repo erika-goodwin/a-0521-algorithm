@@ -11,27 +11,37 @@
 function anagrams(stringA, stringB){
 
     //Solution 1
-    const aCharMap = buildCharMap(stringA) //{ a:1,b:2,c:1 }
-    const bCharMap = buildCharMap(stringB) //{ a:1,b:5, c:1}
+    // const aCharMap = buildCharMap(stringA) //{ a:1,b:2,c:1 }
+    // const bCharMap = buildCharMap(stringB) //{ a:1,b:5, c:1}
 
-    // const obj = { a:1,b:2,c:1 }
-    // console.log(Object.keys(obj))
+    // // const obj = { a:1,b:2,c:1 }
+    // // console.log(Object.keys(obj))
 
-    if(Object.keys(aCharMap).length !== Object.keys(bCharMap).length ){
-        return false
-    }
+    // if(Object.keys(aCharMap).length !== Object.keys(bCharMap).length ){
+    //     return false
+    // }
 
-    for(let char in aCharMap){
-        if(aCharMap[char] !== buildCharMap[char]){
-            return false
-        }
-    }
+    // for(let char in aCharMap){
+    //     if(aCharMap[char] !== bCharMap[char]){
+    //         return false
+    //     }
+    // }
 
-    return true
+    // return true
 
+
+    //Solution 2
+    //Use REGEX
+    return cleanString(stringA) === cleanString(stringB)
+
+    // bcca
+    // cacb
+
+    // abcc
+    // abcc
 }
 
-console.log(anagrams('rail safety', 'fairy tales'))
+console.log(anagrams('i am lord voldemort', 'tom marvolo riddle'))
 
 
 function buildCharMap(str){
@@ -57,4 +67,8 @@ function buildCharMap(str){
      }
 
      return charMap
+}
+
+function cleanString(str){
+    return str.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('')
 }
