@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon 005_fizzbuzz/index.js"
+    "start": "nodemon 007_anagram/index.js"
   },
   "keywords": [],
   "author": "",
