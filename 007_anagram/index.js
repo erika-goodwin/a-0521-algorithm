@@ -41,7 +41,7 @@ function anagrams(stringA, stringB){
     // abcc
 }
 
-console.log(anagrams('i am lord voldemort', 'tom marvolo riddle'))
+
 
 
 function buildCharMap(str){
@@ -72,3 +72,48 @@ function buildCharMap(str){
 function cleanString(str){
     return str.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('')
 }
+
+console.log(anagrams('baba!', 'ba! Ba'))
+
+
+// str = baba!
+// ---> replace() ---> [b,a,b,a,!]
+// ---> \w (alphanumeric character) --> [a,b,a,!]
+// ---> \w (alphanumeric character) --> [b,a,!]
+// ---> \w (alphanumeric character) --> [a,!]
+// ---> \w (alphanumeric character) --> [!]
+
+
+// ----> ^\w (not an alphanumeric char) ----> [b,a,b,a,!] ----> [b]
+// ----> ^\w (not an alphanumeric char) ----> [b,a,b,a,!] ----> [b,a]
+// ----> ^\w (not an alphanumeric char) ----> [b,a,b,a,!] ----> [b,a,b]
+// ----> ^\w (not an alphanumeric char) ----> [b,a,b,a,!] ----> [b,a,b,a]
+// ----> ^\w (not an alphanumeric char) ----> [b,a,b,a,!] ----> [b,a,b,a] // exclamation mark was replaced with empty string
+
+// ...result of replace is "baba"
+
+// ... toLowerCase() .... result is "baba"
+
+// ... split .... result is ['b','a', 'b', 'a']
+
+// .... sort .... result is ['a', 'a', 'b','b']
+
+// .... join .... result is 'aabb'
+
+// result of cleanString for stringA = 'aabb'
+
+
+// //stringB
+// str = "ba! Ba"
+// ---> replace() ---> [b,a,!, ,B,a]
+// result of replace ... "baBa"
+// .... toLowerCase() .... result is "baba"
+// .... split() .... result is ['b','a','b','a']
+// .... sort() ..... result is ['a','a','b','b']
+// ..... join() ..... result is "aabb"
+// result of cleanString for stringb = 'aabb'
+
+
+// clearString(stringA) === clearString(stringB)
+// 'aabb' === 'aabb'
+// => true

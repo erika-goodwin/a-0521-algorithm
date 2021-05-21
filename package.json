@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon 007_anagram/index.js"
+    "start": "nodemon 008_capitalization/index.js"
   },
   "keywords": [],
   "author": "",
